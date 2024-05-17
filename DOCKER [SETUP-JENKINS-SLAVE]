@@ -28,6 +28,28 @@ curl 192.168.1.3:4243
 {"message":"page not found"}
 
 [root@jenkins-master ~]# curl 192.168.1.3:4243/version
-{"Platform":{"Name":"Docker Engine - Community"},"Components":[{"Name":"Engine","Version":"26.1.3","Details":{"ApiVersion":"1.45","Arch":"amd64","BuildTime":"2024-05-16T08:33:48.000000000+00:00","Experimental":"false","GitCommit":"8e96db1","GoVersion":"go1.21.10","KernelVersion":"6.2.9-300.fc38.x86_64","MinAPIVersion":"1.24","Os":"linux"}},{"Name":"containerd","Version":"1.6.31","Details":{"GitCommit":"e377cd56a71523140ca6ae87e30244719194a521"}},{"Name":"runc","Version":"1.1.12","Details":{"GitCommit":"v1.1.12-0-g51d5e94"}},{"Name":"docker-init","Version":"0.19.0","Details":{"GitCommit":"de40ad0"}}],"Version":"26.1.3","ApiVersion":"1.45","MinAPIVersion":"1.24","GitCommit":"8e96db1","GoVersion":"go1.21.10","Os":"linux","Arch":"amd64","KernelVersion":"6.2.9-300.fc38.x86_64","BuildTime":"2024-05-16T08:33:48.000000000+00:00"}
+{"Platform":{"Name":"Docker Engine - Community"},"Components":[{"Name":"Engine","Version":"26.1.3","Details":{"ApiVersion":"1.45","Arch":"amd64","BuildTim
 
+go to jenkins master 
+login jenkins
+go to nodes 
+install plugin docker
+add node docker
+give uri --> where docker is running
+
+tcp://ip:port  [ example in y case port is 4243 ] [that i define in docker service or conf file]
+
+now test the connection
+option that located on same page
+
+expose docker host
+
+provide remote file system root
+
+connect method
+    select --> connect with ssh
+
+use inject key for key based auth or use configure ssh credentials
+
+select pull strategyu
 
