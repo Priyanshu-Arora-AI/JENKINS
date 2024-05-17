@@ -11,12 +11,24 @@
           dnf -y install openssh-server && dnf clean all
           ssh-keygen -A
           /usr/sbin/sshd -D   #start the service of ssh
+
+    INSTALL JDK INSIDE CONTAINER
+          yum install java-17-openjdk [VERSION SHOULD BE SAME TO MASTER]
+    SET ENV PATH
+    vi /etc/profile or /etc/bashrc
+      export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.10.0.7-3.fc40.x86_64
+      export PATH=$PATH:$JAVA_HOME/bin
+    exit
+    docker stop container_name
+    docker commit container_name image
+    set firewall rule for docker allow port 3277
+    selinux rule allow 3277 port and changing docker port 
     
 
 
 setup docker so from any ip we can connect to docker
 vi /usr/lib/systemd/system/docker.service
-ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H fd:// --containerd=/run/containerd/containerd.sock
+ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:3277 -H fd:// --containerd=/run/containerd/containerd.sock
 systemctl daemon-reload
 systemctl restart docker
 
